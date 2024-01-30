@@ -5,7 +5,9 @@ using Delegates;
 var timer = new Stopwatch();
 timer.Start();
 
-FizzBuzz.Run(FBOutput, 1, 100);
+//FizzBuzz.RunAction(FBOutput, 1, 100);
+
+FizzBuzz.RunAction(FBOutput, 1, 100);
 
 timer.Stop();
 
