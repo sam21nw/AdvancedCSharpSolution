@@ -5,15 +5,21 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FizzBuzzWithDelegate", "FizzBuzzWithDelegate\FizzBuzzWithDelegate.csproj", "{2E468DCC-98C6-434D-88D2-31CBD7221DBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredicativeDelegate", "PredicativeDelegate\PredicativeDelegate.csproj", "{F2A427FB-1F30-4D06-9A94-2F863F25B2E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredicativeDelegate", "PredicativeDelegate\PredicativeDelegate.csproj", "{F2A427FB-1F30-4D06-9A94-2F863F25B2E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBasics", "EventBasics\EventBasics.csproj", "{CE2FE771-3030-4B51-B452-07AA65FE3276}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBasics", "EventBasics\EventBasics.csproj", "{CE2FE771-3030-4B51-B452-07AA65FE3276}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppLearn", "ConsoleAppLearn\ConsoleAppLearn.csproj", "{BC7AE782-C695-4CC5-8B75-F88F65C24D4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppLearn", "ConsoleAppLearn\ConsoleAppLearn.csproj", "{BC7AE782-C695-4CC5-8B75-F88F65C24D4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateAdvanced", "DelegateAdvanced\DelegateAdvanced.csproj", "{56FC172B-F557-45C2-AF72-0BC9AEBA1312}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegateAdvanced", "DelegateAdvanced\DelegateAdvanced.csproj", "{56FC172B-F557-45C2-AF72-0BC9AEBA1312}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericTypes", "GenericTypes\GenericTypes.csproj", "{AFE952C4-B935-44A1-91CA-2A46C9A1D370}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericTypes", "GenericTypes\GenericTypes.csproj", "{AFE952C4-B935-44A1-91CA-2A46C9A1D370}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionMethods", "ExtensionMethods\ExtensionMethods.csproj", "{13315980-0EA3-47ED-95CF-71307642D8FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnGenericBasics", "LearnGenericBasics\LearnGenericBasics.csproj", "{750D35C8-397D-4CB3-8A08-944119B05A0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz.Learn", "FizzBuzz.Learn\FizzBuzz.Learn.csproj", "{6DC3F1AD-1790-4335-A44C-476CC49940A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{AFE952C4-B935-44A1-91CA-2A46C9A1D370}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFE952C4-B935-44A1-91CA-2A46C9A1D370}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFE952C4-B935-44A1-91CA-2A46C9A1D370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13315980-0EA3-47ED-95CF-71307642D8FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13315980-0EA3-47ED-95CF-71307642D8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13315980-0EA3-47ED-95CF-71307642D8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13315980-0EA3-47ED-95CF-71307642D8FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{750D35C8-397D-4CB3-8A08-944119B05A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{750D35C8-397D-4CB3-8A08-944119B05A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{750D35C8-397D-4CB3-8A08-944119B05A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{750D35C8-397D-4CB3-8A08-944119B05A0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC3F1AD-1790-4335-A44C-476CC49940A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC3F1AD-1790-4335-A44C-476CC49940A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC3F1AD-1790-4335-A44C-476CC49940A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC3F1AD-1790-4335-A44C-476CC49940A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
