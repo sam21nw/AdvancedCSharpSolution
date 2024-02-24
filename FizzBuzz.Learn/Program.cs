@@ -1,44 +1,34 @@
 ﻿
-var oops = new FizzBuzz(new ConsoleFizzOutput());
-oops.Run(6, 100);
+var fb = new FizzBuzz();
 
-class ConsoleFizzOutput : IFizzOutput
-{
-    public void Write(string output)
-    {
-        Console.WriteLine(output);
-    }
-}
+FizzBuzzOutput fbo = Console.WriteLine;
+fbo += Console.WriteLine;
 
-interface IFizzOutput
-{
-    void Write(string output);
-}
+FizzBuzz.Run(Console.WriteLine, 20);
+
+//static void ConsoleWrite(string output)
+//{
+//    Console.WriteLine(output);
+//}
 
 class FizzBuzz
 {
-    private readonly IFizzOutput _output;
-    public FizzBuzz(IFizzOutput output)
+    public static void Run(FizzBuzzOutput output, int n)
     {
-        _output = output;
-    }
-    public void Run(int from, int count)
-    {
-        for (int i = from;i < from + count;i++)
+        for (int i = 1;i < n;i++)
         {
-            if (i % 3 == 0 && i % 5 == 0)
+            if (i % 3 == 0)
             {
-                _output.Write("FizzBuzz");
-            } else if (i % 3 == 0)
+                output.Invoke("Fizz");
+            }
+            if (i % 5 == 0)
             {
-                _output.Write("Fizz");
-            } else if (i % 5 == 0)
-            {
-                _output.Write("Buzz");
+                output("Buzz");
             } else
             {
-                _output.Write(i.ToString());
+                output(i.ToString());
             }
         }
     }
 }
+public delegate void FizzBuzzOutput(string output);
