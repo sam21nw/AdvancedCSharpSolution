@@ -31,4 +31,4 @@ class FizzBuzz
         }
     }
 }
-public delegate void FizzBuzzOutput(string output);
+public delegate void FizzBuzzOutput(string output, string dud = "hello");
