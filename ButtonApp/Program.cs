@@ -1,56 +1,21 @@
 ﻿
-var state = new StateManager();
-var mainMenu = new MainMenuState();
-state.Run(mainMenu);
-mainMenu.Execute();
+Func<int, bool> predicate = IsMod3;
 
-class StateManager
+bool IsMod3(int arg)
 {
-    private IState? _state;
-    public void Run(IState state)
-    {
-        _state = state;
-        while (true)
-        {
+    return arg % 3 == 0;
+}
 
+IEnumerable<int> Filter(IEnumerable<int> source, Func<int, bool> predicate)
+{
+    List<int> result = [];
+
+    foreach (var item in result)
+    {
+        if (predicate(item))
+        {
+            result.Add(item);
         }
     }
-}
-
-class MainMenuState : IState
-{
-    public void Execute()
-    {
-        Console.WriteLine("Main menu");
-    }
-    public ICommand Command()
-    {
-        return new InvalidCommand();
-    }
-}
-
-class InvalidCommand : ICommand
-{
-    public void Run()
-    {
-        Console.WriteLine("Invalid command");
-    }
-}
-class HelpCommand : ICommand
-{
-    public void Run()
-    {
-        Console.WriteLine("HELP!");
-    }
-}
-
-interface IState
-{
-    void Execute();
-    ICommand Command();
-}
-
-public interface ICommand
-{
-    void Run();
+    return result;
 }
