@@ -1,21 +1,28 @@
 ﻿
-Func<int, bool> predicate = IsMod3;
+var button = new Button();
+button.Click += Button_Click;
 
-bool IsMod3(int arg)
+static void Button_Click(object sender, EventArgs e)
 {
-    return arg % 3 == 0;
+    Console.WriteLine(e.ToString());
 }
 
-IEnumerable<int> Filter(IEnumerable<int> source, Func<int, bool> predicate)
-{
-    List<int> result = [];
+button.SimulateClick();
 
-    foreach (var item in result)
+class Button
+{
+    public delegate void ButtonClick(object sender, EventArgs e);
+    private ButtonClick? _click;
+
+    //public event ButtonClick Click;
+    public event ButtonClick Click
     {
-        if (predicate(item))
-        {
-            result.Add(item);
-        }
+        add { _click += value; }
+        remove { _click -= value; }
     }
-    return result;
+    public void SimulateClick()
+    {
+
+        _click?.Invoke(this, EventArgs.Empty);
+    }
 }
