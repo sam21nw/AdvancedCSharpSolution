@@ -1,4 +1,6 @@
-﻿public static class MyExtensions
+﻿using System.Collections;
+
+public static class MyExtensions
 {
     public static int MyCount<T>(this IEnumerable<T> that, Func<T, bool> predicate)
     {
@@ -122,7 +124,7 @@
         return value;
     }
 
-    public static IEnumerable<T> Concat<T>(this IEnumerable<T> that, IEnumerable<T> other)
+    public static IEnumerable<T> MyConcat<T>(this IEnumerable<T> that, IEnumerable<T> other)
     {
         var enumerator1 = that.GetEnumerator();
         var enumerator2 = other.GetEnumerator();
@@ -136,4 +138,89 @@
             yield return enumerator2.Current;
         }
     }
+
+    public static IEnumerable<T> MyUnion<T>(this IEnumerable<T> that, IEnumerable<T> other, IEqualityComparer<T> comparer)
+    {
+        var set = new HashSet<T>(comparer);
+
+        var enumerator1 = that.GetEnumerator();
+        var enumerator2 = other.GetEnumerator();
+
+        while (enumerator1.MoveNext())
+        {
+            if (set.Add(enumerator1.Current))
+            {
+                yield return enumerator1.Current;
+            }
+        }
+        while (enumerator2.MoveNext())
+        {
+            if (set.Add(enumerator2.Current))
+            {
+                yield return enumerator2.Current;
+            }
+        }
+    }
+
+    public static IEnumerable<T> MyExcept<T>(this IEnumerable<T> that, IEnumerable<T> other)
+    {
+        var blacklist = new HashSet<T>(other);
+        var enumerator1 = that.GetEnumerator();
+
+        while (enumerator1.MoveNext())
+        {
+            if (blacklist.Add(enumerator1.Current))
+            {
+                yield return enumerator1.Current;
+            }
+        }
+    }
+
+    public static IEnumerable<T> MyIntersect<T>(this IEnumerable<T> that, IEnumerable<T> other)
+    {
+        var itemsThatExist = new HashSet<T>(other);
+        var enumerator1 = that.GetEnumerator();
+
+        while (enumerator1.MoveNext())
+        {
+            if (itemsThatExist.Remove(enumerator1.Current))
+            {
+                yield return enumerator1.Current;
+            }
+        }
+    }
+
+    public static Dictionary<TKey, TValue> MyToDictionary<TSource, TKey, TValue>(
+        this IEnumerable<TSource> that,
+        Func<TSource, TKey> keySelector,
+        Func<TSource, TValue> valueSelector,
+        IEqualityComparer<TSource> comparer)
+    {
+        var dictionary = new Dictionary<TKey, TValue>();
+        foreach (var item in that)
+        {
+            dictionary.Add(keySelector(item), valueSelector(item));
+        }
+        return dictionary;
+    }
+
+    public static IEnumerable<TResult> MyCast<TResult>(this IEnumerable that)
+    {
+        foreach (var item in that)
+        {
+            yield return (TResult)item;
+        }
+    }
+
+    public static IEnumerable<TResult> MyOfType<TResult>(this IEnumerable that)
+    {
+        foreach (var item in that)
+        {
+            if (item is TResult result)
+            {
+                yield return result;
+            }
+        }
+    }
 }
+

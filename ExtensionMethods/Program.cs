@@ -1,7 +1,11 @@
 ﻿
-List<int> list = [1, 2, 3, 4, 25, 6, 7, 8, 9];
+List<int> list1 = [1, 2, 3, 4, 25];
+List<int> list2 = [6, 7, 8, 9];
+List<int> list3 = [6, 7, 8, 11, 7];
 
-var sum = list.MyAggregate(0, (a, i) => a + i);
-var max = list.MyAggregate(0, (a, i) => i > a ? i : a);
+var set = new HashSet<int>(list3);
 
-Console.WriteLine(max);
+foreach (var item in set)
+{
+    Console.WriteLine(item);
+}
