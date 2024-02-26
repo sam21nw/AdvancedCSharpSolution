@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnGenericBasics", "Learn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FizzBuzz.Learn", "FizzBuzz.Learn\FizzBuzz.Learn.csproj", "{6DC3F1AD-1790-4335-A44C-476CC49940A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonApp", "ButtonApp\ButtonApp.csproj", "{C6B88DC9-4B38-42D9-8999-C57E115B4910}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ButtonApp", "ButtonApp\ButtonApp.csproj", "{C6B88DC9-4B38-42D9-8999-C57E115B4910}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{893E1AA0-9C98-4FDF-B626-91754A9B6196}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{C6B88DC9-4B38-42D9-8999-C57E115B4910}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6B88DC9-4B38-42D9-8999-C57E115B4910}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6B88DC9-4B38-42D9-8999-C57E115B4910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{893E1AA0-9C98-4FDF-B626-91754A9B6196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{893E1AA0-9C98-4FDF-B626-91754A9B6196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{893E1AA0-9C98-4FDF-B626-91754A9B6196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{893E1AA0-9C98-4FDF-B626-91754A9B6196}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

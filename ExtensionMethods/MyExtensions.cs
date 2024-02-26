@@ -1,6 +1,4 @@
-﻿namespace ExtensionMethods;
-
-public static class MyExtensions
+﻿public static class MyExtensions
 {
     public static int MyCount<T>(this IEnumerable<T> that, Func<T, bool> predicate)
     {
@@ -13,50 +11,129 @@ public static class MyExtensions
         //return that.Count(predicate);
         IEnumerator<T> enumerator = that.GetEnumerator();
         int n = 0;
-        while (enumerator.MoveNext()) {
+        while (enumerator.MoveNext())
+        {
             n++;
         }
         return n;
     }
 
-    public static IEnumerable<TSource> MyWhere<TSource>(IEnumerable<TSource> that, Func<TSource, bool> predicate)
+    public static IEnumerable<TSource> MyWhere<TSource>(this IEnumerable<TSource> that, Func<TSource, bool> predicate)
     {
         IEnumerator<TSource> enumerator = that.GetEnumerator();
-        while (enumerator.MoveNext()) {
-            if (predicate(enumerator.Current)) {
+        while (enumerator.MoveNext())
+        {
+            if (predicate(enumerator.Current))
+            {
                 yield return enumerator.Current;
             }
         }
     }
 
-    public static T MyFirst<T>(IEnumerable<T> that, Func<T, bool> predicate)
+    public static T MyFirst<T>(this IEnumerable<T> that, Func<T, bool> predicate)
     {
         using IEnumerator<T> enumerator = that.GetEnumerator();
-        while (enumerator.MoveNext()) {
+        while (enumerator.MoveNext())
+        {
             T current = enumerator.Current;
-            if (predicate(current)) {
+            if (predicate(current))
+            {
                 return current;
             }
         }
         throw new InvalidOperationException();
     }
 
-    public static bool MyAny<T>(IEnumerable<T> that, Func<T, bool> predicate)
+    public static bool MyAny<T>(this IEnumerable<T> that, Func<T, bool> predicate)
     {
         IEnumerator<T> enumerator = that.GetEnumerator();
-        while (enumerator.MoveNext()) {
-            if (predicate(enumerator.Current)) {
+        while (enumerator.MoveNext())
+        {
+            if (predicate(enumerator.Current))
+            {
                 return true;
             }
         }
         return false;
     }
 
-    public static IEnumerable<TResult> MyMap<TSource, TResult>(IEnumerable<TSource> that, Func<TSource, TResult> projection)
+    public static T MyFirst<T>(this IEnumerable<T> that)
     {
-        IEnumerator<TSource> enumerator = that.GetEnumerator();
-        while (enumerator.MoveNext()) {
+        IEnumerator<T>? enumerator = that.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
+            return enumerator.Current;
+
+        }
+        throw new InvalidOperationException();
+    }
+
+    public static IEnumerable<TResult> MyMap<TSource, TResult>(this IEnumerable<TSource> that, Func<TSource, TResult> projection)
+    {
+        IEnumerator<TSource>? enumerator = that.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
             yield return projection(enumerator.Current);
+        }
+    }
+
+    public static bool Any<T>(this IEnumerable<T> that)
+    {
+        IEnumerator<T> enumerator = that.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
+            return true;
+        }
+        return false;
+    }
+    public static bool Any<T>(this IEnumerable<T> that, Func<T, bool> predicate)
+    {
+        IEnumerator<T> enumerator = that.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
+            if (predicate(enumerator.Current))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static bool All<T>(this IEnumerable<T> that, Func<T, bool> predicate)
+    {
+        IEnumerator<T> enumerator = that.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
+            if (!predicate(enumerator.Current))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static TAcc MyAggregate<TAcc, TSource>(this IEnumerable<TSource> that, TAcc seed, Func<TAcc, TSource, TAcc> fold)
+    {
+        var value = seed;
+        IEnumerator<TSource> enumerator = that.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
+            value = fold(value, enumerator.Current);
+        }
+        return value;
+    }
+
+    public static IEnumerable<T> Concat<T>(this IEnumerable<T> that, IEnumerable<T> other)
+    {
+        var enumerator1 = that.GetEnumerator();
+        var enumerator2 = other.GetEnumerator();
+
+        while (enumerator1.MoveNext())
+        {
+            yield return enumerator1.Current;
+        }
+        while (enumerator2.MoveNext())
+        {
+            yield return enumerator2.Current;
         }
     }
 }
