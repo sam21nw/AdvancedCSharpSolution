@@ -9,3 +9,5 @@ foreach (var item in set)
 {
     Console.WriteLine(item);
 }
+
+Action? whoa = () => { Console.WriteLine(""); };
